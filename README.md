@@ -12,7 +12,8 @@ You can download the app in this Link:[Coming soon]
 # Collaborators 
 Luis Fernando Santiago Ruiz - luissantiagodev@gmail.com
 
-[Lakshmikant Deshpande](https://github.com/lakshmikantdeshpande)
+[Lakshmikant Deshpande](https://github.com/lakshmikantdeshpande) - lakshmikantdeshpande@gmail.com
+
 # License
    Copyright 2017 Luis Santiago
 
