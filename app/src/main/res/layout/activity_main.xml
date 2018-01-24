@@ -4,95 +4,111 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray_background"
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    tools:context="com.luis_santiago.flagquizapp.MainActivity">
+    tools:context="com.luis_santiago.pomodoro.MainActivity">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
-
         <include layout="@layout/action_app_bar"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:gravity="center"
             android:orientation="vertical"
+            android:layout_marginTop="?attr/actionBarSize"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="150dp"
-                android:layout_marginBottom="40dp"
-                android:background="@drawable/circle"
-                android:gravity="center"
-                android:layout_height="150dp">
-
-                <TextView
-                    android:id="@+id/minutes"
-                    android:layout_width="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@android:color/white"
-                    android:textSize="40sp"
-                    android:layout_height="wrap_content"
-                    android:text="20"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@android:color/white"
-                    android:textSize="40sp"
-                    android:layout_height="wrap_content"
-                    android:text=":"
-                    />
-                <TextView
-                    android:id="@+id/seconds"
-                    android:layout_width="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@android:color/white"
-                    android:textSize="40sp"
-                    android:layout_height="wrap_content"
-                    android:text="00"
-                    />
-             </LinearLayout>
-            <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingBottom="80dp"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="40dp"
+                    android:gravity="center"
+                    android:layout_height="210dp">
 
-                <Button
-                    android:id="@+id/start"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="start"
-                    android:textColor="@color/white"
-                    android:theme = "@style/AppTheme.ButtonStart"
-                    android:layout_height="50dp"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal">
 
-                <Button
-                    android:id="@+id/stop"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:theme = "@style/AppTheme.Button"
-                    android:text="Stop"
-                    android:textColor="@color/white"
-                    android:layout_height="50dp"/>
+                        <com.github.lzyzsd.circleprogress.ArcProgress
+                        android:id="@+id/circular_progress"
+                        custom:arc_unfinished_color = "@color/colorPrimaryDark"
+                        custom:arc_finished_color = "@color/colorAccent"
+                        android:layout_width="210dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_height="210dp"
+                        custom:arc_suffix_text = " "
+                        custom:arc_text_color = "@android:color/white"
+                        custom:arc_progress = "0"
+                        />
 
-                <Button
-                    android:id="@+id/reset"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="Reset"
-                    android:layout_height="50dp"/>
+                        <TextView
+                            android:id="@+id/time_text_view"
+                            android:layout_width="match_parent"
+                            android:textSize="36sp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="20:00"/>
+
+                    </RelativeLayout>
+                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="6dp"
+                    android:layout_height="150dp">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/reset"
+                        android:layout_width="60dp"
+                        android:clickable="true"
+                        app:elevation="6dp"
+                        android:src="@drawable/icons8_reset"
+                        android:layout_marginRight="10dp"
+                        app:fabSize="normal"
+                        android:layout_height="60dp"/>
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/play"
+                        android:layout_width="60dp"
+                        android:clickable="true"
+                        app:elevation="6dp"
+                        android:src="@drawable/icons8_play"
+                        android:layout_marginRight="10dp"
+                        app:fabSize="normal"
+                        android:layout_height="60dp"/>
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/pause"
+                        android:layout_width="60dp"
+                        android:src="@drawable/icons8_pause"
+                        android:clickable="true"
+                        app:elevation="6dp"
+                        app:fabSize="normal"
+                        android:layout_height="60dp"/>
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
             android:layout_height="wrap_content">
-
             <com.google.android.gms.ads.AdView
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
@@ -100,7 +116,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 ads:adSize="BANNER"
-                ads:adUnitId="ca-app-pub-5461480863776866/1384390906">
+                ads:adUnitId="ca-app-pub-5461480863776866/9089349780">
             </com.google.android.gms.ads.AdView>
         </RelativeLayout>
     </RelativeLayout>
